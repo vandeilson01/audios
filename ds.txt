@@ -1,0 +1,345 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Pagination with Logos and PDFs</title>
+    <style>
+        .bas {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: linear-gradient(to right, #666, #ffcc00);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 10px;
+        }
+        .carde {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: none;
+        }
+        .carde img {
+            max-width: 100%;
+            height: auto;
+        }
+        .carde h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #333;
+        }
+        .carde p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .paginations {
+            text-align: center;
+            padding: 10px;
+            color: #333;
+        }
+        .paginations button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .paginations button.active {
+            background-color: #ffcc00;
+            color: #333;
+        }
+        .paginations button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        .carde.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="bas">
+        <div class="container">
+            <div class="column">
+                <!-- Page 1 -->
+                <div class="carde" data-page="1">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Out-2023-curva.png" alt="Logo-Damater-Out-2023-curva">
+                </div>
+                <div class="carde" data-page="1">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSlogan-1.png" alt="HorizontalAzulSlogan-1">
+                </div>
+                <div class="carde" data-page="1">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSlogan.png" alt="HorizontalAzulSlogan">
+                </div>
+                <div class="carde" data-page="1">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalBrancoSemSlogan.png" alt="HorizontalBrancoSemSlogan">
+                </div>
+                <!-- Page 2 -->
+                <div class="carde" data-page="2">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalBrancoSlogan.png" alt="HorizontalBrancoSlogan">
+                </div>
+                <div class="carde" data-page="2">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalPretoSemSlogan.png" alt="HorizontalPretoSemSlogan">
+                </div>
+                <div class="carde" data-page="2">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalPretoSlogan.png" alt="HorizontalPretoSlogan">
+                </div>
+                <div class="carde" data-page="2">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater.png" alt="Logo-Damater">
+                </div>
+                <!-- Page 3 -->
+                <div class="carde" data-page="3">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Osteo.png" alt="Logo-Damater-Osteo">
+                </div>
+                <div class="carde" data-page="3">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/8561-2024-Terrosa_Logo_Branco_Brasil.png" alt="Logotipo-TERROSA-Brasil-1">
+                </div>
+                <div class="carde" data-page="3">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/8561-2024-Terrosa_Logo_Branco_Brasil.png" alt="Logotipo-TERROSA-Brasil-2">
+                </div>
+                <div class="carde" data-page="3">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/8561-2024-Terrosa_Logo_Branco_Brasil.png" alt="Logotipo-TERROSA-Brasil">
+                </div>
+                <!-- Page 4 -->
+                <div class="carde" data-page="4">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Novo-Logo-Evra-1.png" alt="Novo-Logo-Evra-1">
+                </div>
+                <div class="carde" data-page="4">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Novo-Logo-Evra.png" alt="Novo-Logo-Evra">
+                </div>
+                <div class="carde" data-page="4">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Lenzetto-curva.png" alt="Logo-Lenzetto-curva">
+                </div>
+                <div class="carde" data-page="4">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalAzulSemSlogan.png" alt="VerticalAzulSemSlogan">
+                </div>
+                <!-- Page 5 -->
+                <div class="carde" data-page="5">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalAzulSlogan.png" alt="VerticalAzulSlogan">
+                </div>
+                <div class="carde" data-page="5">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalBrancoSemSlogan.png" alt="VerticalBrancoSemSlogan">
+                </div>
+                <div class="carde" data-page="5">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalBrancoSlogan.png" alt="VerticalBrancoSlogan">
+                </div>
+                <div class="carde" data-page="5">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalPretoSemSlogan.png" alt="VerticalPretoSemSlogan">
+                </div>
+                <!-- Page 6 -->
+                <div class="carde" data-page="6">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalPretoSlogan.png" alt="VerticalPretoSlogan">
+                </div>
+                <div class="carde" data-page="6">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/logo_belarina_24_4.png" alt="logo_belarina_24_4">
+                </div>
+                <div class="carde" data-page="6">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logotipo-TERROSA-Brasil.png" alt="Logotipo-TERROSA-Brasil-New">
+                </div>
+                <div class="carde" data-page="6">
+                    <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Out-2023-curva.png" alt="Logo-Damater-Out-2023-curva-New">
+                </div>
+            </div>
+            <div class="column">
+                <!-- Page 1 -->
+                <div class="carde" data-page="1">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Out-2023-curva.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Out-2023-curva.png" alt="Logo-Damater-Out-2023-curva">
+                    </a>
+                </div>
+                <div class="carde" data-page="1">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSlogan-1.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSlogan-1.png" alt="HorizontalAzulSlogan-1">
+                    </a>
+                </div>
+                <div class="carde" data-page="1">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSlogan.png" alt="HorizontalAzulSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="1">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalAzulSloganless.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalBrancoSemSlogan.png" alt="HorizontalBrancoSemSlogan">
+                    </a>
+                </div>
+                <!-- Page 2 -->
+                <div class="carde" data-page="2">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalBrancoSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalBrancoSlogan.png" alt="HorizontalBrancoSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="2">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalPretoSemSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalPretoSemSlogan.png" alt="HorizontalPretoSemSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="2">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalPretoSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/HorizontalPretoSlogan.png" alt="HorizontalPretoSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="2">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater.png" alt="Logo-Damater">
+                    </a>
+                </div>
+                <!-- Page 3 -->
+                <div class="carde" data-page="3">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Osteo.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Osteo.png" alt="Logo-Damater-Osteo">
+                    </a>
+                </div>
+                <div class="carde" data-page="3">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logotipo-TERROSA-Brasil-1.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/8561-2024-Terrosa_Logo_Branco_Brasil.png" alt="Logotipo-TERROSA-Brasil-1">
+                    </a>
+                </div>
+                <div class="carde" data-page="3">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logotipo-TERROSA-Brasil-2.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/8561-2024-Terrosa_Logo_Branco_Brasil.png" alt="Logotipo-TERROSA-Brasil-2">
+                    </a>
+                </div>
+                <div class="carde" data-page="3">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logotipo-TERROSA-Brasil.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/8561-2024-Terrosa_Logo_Branco_Brasil.png" alt="Logotipo-TERROSA-Brasil">
+                    </a>
+                </div>
+                <!-- Page 4 -->
+                <div class="carde" data-page="4">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Novo-Logo-Evra-1.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Novo-Logo-Evra-1.png" alt="Novo-Logo-Evra-1">
+                    </a>
+                </div>
+                <div class="carde" data-page="4">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Novo-Logo-Evra.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Novo-Logo-Evra.png" alt="Novo-Logo-Evra">
+                    </a>
+                </div>
+                <div class="carde" data-page="4">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Lenzetto-curva.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Lenzetto-curva.png" alt="Logo-Lenzetto-curva">
+                    </a>
+                </div>
+                <div class="carde" data-page="4">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/VerticalAzulSemSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalAzulSemSlogan.png" alt="VerticalAzulSemSlogan">
+                    </a>
+                </div>
+                <!-- Page 5 -->
+                <div class="carde" data-page="5">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/VerticalAzulSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalAzulSlogan.png" alt="VerticalAzulSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="5">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/VerticalBrancoSemSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalBrancoSemSlogan.png" alt="VerticalBrancoSemSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="5">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/VerticalBrancoSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalBrancoSlogan.png" alt="VerticalBrancoSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="5">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/VerticalPretoSemSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalPretoSemSlogan.png" alt="VerticalPretoSemSlogan">
+                    </a>
+                </div>
+                <!-- Page 6 -->
+                <div class="carde" data-page="6">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/VerticalPretoSlogan.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/VerticalPretoSlogan.png" alt="VerticalPretoSlogan">
+                    </a>
+                </div>
+                <div class="carde" data-page="6">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/logo_belarina_24_4.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/logo_belarina_24_4.png" alt="logo_belarina_24_4">
+                    </a>
+                </div>
+                <div class="carde" data-page="6">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logotipo-TERROSA-Brasil-New.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logotipo-TERROSA-Brasil.png" alt="Logotipo-TERROSA-Brasil-New">
+                    </a>
+                </div>
+                <div class="carde" data-page="6">
+                    <a href="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Out-2023-curva.pdf">
+                        <img src="https://novolex.com.br/wp-content/uploads/2025/08/Logo-Damater-Out-2023-curva.png" alt="Logo-Damater-Out-2023-curva-New">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="paginations">
+            <button id="backBtn" onclick="changePage(currentPage - 1)">Back</button>
+            <button onclick="changePage(1)" class="active">1</button>
+            <button onclick="changePage(2)">2</button>
+            <button onclick="changePage(3)">3</button>
+            <button onclick="changePage(4)">4</button>
+            <button onclick="changePage(5)">5</button>
+            <button onclick="changePage(6)">6</button>
+            <button id="nextBtn" onclick="changePage(currentPage + 1)">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 6;
+
+        function changePage(page) {
+            // Ensure page is within valid range
+            if (page < 1 || page > totalPages) return;
+            
+            currentPage = page;
+            const cards = document.querySelectorAll('.carde');
+            const buttons = document.querySelectorAll('.paginations button');
+            const backBtn = document.getElementById('backBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Update card visibility
+            cards.forEach(card => {
+                card.classList.remove('active');
+                if (parseInt(card.getAttribute('data-page')) === currentPage) {
+                    card.classList.add('active');
+                }
+            });
+
+            // Update button active state
+            buttons.forEach(button => {
+                button.classList.remove('active');
+                if (button.textContent !== 'Back' && button.textContent !== 'Next' && parseInt(button.textContent) === currentPage) {
+                    button.classList.add('active');
+                }
+            });
+
+            // Enable/disable Back and Next buttons
+            backBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+        }
+
+        // Initialize the first page
+        changePage(1);
+    </script>
+</body>
+</html>
+```
